@@ -825,7 +825,7 @@ def syntax_analyzer(input_filename, output_filename):
             if output_file:
                 output_file.write("Parsing completed successfully!\n")
             print("Parsing completed successfully!")
-            print("Symbol Table:")
+            print("\n\nSymbol Table:")
             for identifier, address in symbol_table.items():
                 print(f"{identifier}: {address}")
                 if output_file:
