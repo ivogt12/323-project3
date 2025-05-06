@@ -1,0 +1,15 @@
+$$
+$$
+integer value1, value2, min;
+real base, exponent, product;
+
+$$
+scan(value1, value2, min);
+scan(base, exponent, product);
+
+
+print(min);
+
+
+print(product);
+$$
