@@ -28,9 +28,7 @@ class Parser:
     def parse(self):
         """Entry point for parsing"""
         try:
-            print("TEST1")
             self.Rat25S()
-            print("TEST2")
             self.semantics.print_tables()
         except SyntaxError as e:
             print(f"\nERROR: {str(e)}")
@@ -40,13 +38,9 @@ class Parser:
     def Rat25S(self):
         self.match("Separator", "$$")
         self.match("Separator", "$$")
-        print("TEST1.1")
         self.OptDeclarationList()
-        print("TEST1.2")
         self.match("Separator", "$$")
-        print("TEST1.3")
         self.StatementList()
-        print("TEST1.4")
         self.match("Separator", "$$")
 
     # R12. <Opt Declaration List> ::= <Declaration List> | ε
