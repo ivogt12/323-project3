@@ -7,16 +7,17 @@ def print_usage():
 
 def main():
     # Check command-line arguments
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print_usage()
         sys.exit(1)
 
     input_file = sys.argv[1]
+    output_file = sys.argv[2]
     
     try:
         # Initialize and run parser
         #print(f"\nCompiling {input_file}...")
-        parser = Parser(input_file)
+        parser = Parser(input_file, output_file)
         parser.parse()
         
     except FileNotFoundError:

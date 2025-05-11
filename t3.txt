@@ -1,0 +1,27 @@
+$$
+[* NO function definitions *]
+$$
+integer value1, max, min, buffer;
+integer base, exponent, product;
+$$
+value1 = 0;
+scan(max, min);
+scan(base, exponent, product);
+while (exponent <= value1) {
+    product = base * base;
+    value1 = value1 + 1;
+} endwhile
+print(product);
+if (max == min) {
+    print(max-min);
+} else {
+    if (max < min) {
+        buffer = max;
+        max = min;
+        min = buffer;
+        print(max-min);
+    } else {
+        print(max-min);
+    } endif
+} endif
+$$

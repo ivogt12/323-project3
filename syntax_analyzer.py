@@ -2,9 +2,10 @@ from lexer import lexer
 from semantics import Semantics
 
 class Parser:
-    def __init__(self, input_file):
+    def __init__(self, input_file, output_file):
         self.fp = open(input_file, 'r')
-        self.semantics = Semantics()
+        self.output_fp = open(output_file, 'w')
+        self.semantics = Semantics(self.output_fp)
         self.current_token, self.current_lexeme = None, None
         self.next_token()  # Initialize first token
     
@@ -32,6 +33,9 @@ class Parser:
             self.semantics.print_tables()
         except SyntaxError as e:
             print(f"\nERROR: {str(e)}")
+            self.output_fp.write(f"\nERROR: {str(e)}\n")
+            self.output_fp.close()
+            self.fp.close()
             exit(1)
 
     # R1. <Rat25S> ::= $$ <Opt Declaration List> $$ <Statement List> $$
@@ -195,11 +199,19 @@ class Parser:
             raise SyntaxError("Expected identifier in scan statement")
         
         # Semantic Action: Generate input instructions
-        identifier = self.current_lexeme
-        self.semantics.generate_instruction("SIN", None)
-        self.semantics.generate_instruction("POPM", self.semantics.get_address(identifier))
-        
-        self.match("Identifier")
+        while True:
+            identifier = self.current_lexeme
+            self.semantics.generate_instruction("SIN", None)
+            self.semantics.generate_instruction("POPM", self.semantics.get_address(identifier))
+            self.match("Identifier")
+            
+            if self.current_lexeme != ",":
+                break
+            
+            self.next_token()
+            if self.current_token != "Identifier":
+                raise SyntaxError("Expected identifier after comma")
+
         self.match("Separator", ")")
         self.match("Separator", ";")
 

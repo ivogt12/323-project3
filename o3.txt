@@ -1,0 +1,66 @@
+
+Symbol Table:
+Identifier MemoryLocation Type
+value1      10000        integer
+max         10001        integer
+min         10002        integer
+buffer      10003        integer
+base        10004        integer
+exponent    10005        integer
+product     10006        integer
+
+Instruction Table:
+1    PUSHI       0
+2    POPM    10000
+3    SIN          
+4    POPM    10001
+5    SIN          
+6    POPM    10002
+7    SIN          
+8    POPM    10004
+9    SIN          
+10   POPM    10005
+11   SIN          
+12   POPM    10006
+13   LABEL        
+14   PUSHM   10005
+15   PUSHM   10000
+16   LEQ          
+17   JMP0       27
+18   PUSHM   10004
+19   PUSHM   10004
+20   M            
+21   POPM    10006
+22   PUSHM   10000
+23   PUSHI       1
+24   A            
+25   POPM    10000
+26   JMP        13
+27   PUSHM   10006
+28   SOUT         
+29   PUSHM   10001
+30   PUSHM   10002
+31   EQU          
+32   JMP0       37
+33   PUSHM   10001
+34   PUSHM   10002
+35   S            
+36   SOUT         
+37   PUSHM   10001
+38   PUSHM   10002
+39   LES          
+40   JMP0       51
+41   PUSHM   10001
+42   POPM    10003
+43   PUSHM   10002
+44   POPM    10001
+45   PUSHM   10003
+46   POPM    10002
+47   PUSHM   10001
+48   PUSHM   10002
+49   S            
+50   SOUT         
+51   PUSHM   10001
+52   PUSHM   10002
+53   S            
+54   SOUT         

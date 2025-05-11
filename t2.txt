@@ -1,0 +1,8 @@
+$$
+[* NO function definitions *]
+$$ 
+integer z, t;
+$$ 
+z = 4;
+t = z + 5;
+$$
